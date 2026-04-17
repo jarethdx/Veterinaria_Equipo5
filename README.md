@@ -91,5 +91,5 @@ git clone https://github.com/jarethdx/Veterinaria-API-REST.git
 ## Autor
 
 Dixon Martinez Jarquin  
-Estudiante de Ingeniería en Sistemas — UNED Costa Rica  
+Estudiante de Ingeniería en Sistemas — UTC Costa Rica  
 [GitHub](https://github.com/jarethdx)
