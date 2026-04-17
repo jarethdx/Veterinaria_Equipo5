@@ -1,0 +1,32 @@
+@* ── AGREGAR CITA ── *@
+@model VET_MVC.Models.mCita
+@{ ViewData["Title"] = "Nueva cita"; Layout = "~/Views/Shared/_Layout.cshtml"; }
+<h2>Programar nueva cita</h2><hr />
+<div class="row"><div class="col-md-5">
+    <form asp-action="insCita">
+        <div class="mb-3">
+            <label asp-for="TN_IdCliente" class="form-label"></label>
+            <select asp-for="TN_IdCliente" class="form-select">
+                <option value="">-- Seleccione cliente --</option>
+                @foreach (var c in (ViewBag.Clientes as List<VET_MVC.Models.mCliente> ?? new()))
+                { <option value="@c.TN_IdCliente">@c.TC_Nombre @c.TC_Ap1</option> }
+            </select>
+        </div>
+        <div class="mb-3">
+            <label asp-for="TN_IdMascota" class="form-label"></label>
+            <select asp-for="TN_IdMascota" class="form-select">
+                <option value="">-- Seleccione mascota --</option>
+                @foreach (var m in (ViewBag.Mascotas as List<VET_MVC.Models.mMascota> ?? new()))
+                { <option value="@m.TN_IdMascota">@m.TC_NomMascota</option> }
+            </select>
+        </div>
+        <div class="mb-3">
+            <label asp-for="TF_FecCita" class="form-label"></label>
+            <input asp-for="TF_FecCita" type="datetime-local" class="form-control" />
+            <span asp-validation-for="TF_FecCita" class="text-danger"></span>
+        </div>
+        <input type="submit" value="Guardar" class="btn btn-primary" />
+        <a asp-action="listadoCitas" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div></div>
+@section Scripts { @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); } }

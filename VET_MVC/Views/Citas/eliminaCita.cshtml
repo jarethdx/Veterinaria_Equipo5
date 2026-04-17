@@ -1,0 +1,13 @@
+@model VET_MVC.Models.mCita
+@{ ViewData["Title"] = "Eliminar cita"; Layout = "~/Views/Shared/_Layout.cshtml"; }
+<h2>¿Desea eliminar esta cita?</h2><hr />
+<div class="alert alert-warning">
+    <strong>Fecha:</strong> @Model?.TF_FecCita.ToString("dd/MM/yyyy HH:mm")<br />
+    <strong>Cliente:</strong> @Model?.TC_NombreCliente —
+    <strong>Mascota:</strong> @Model?.TC_NomMascota
+</div>
+<form asp-action="delCita">
+    <input type="hidden" asp-for="TN_IdCita" />
+    <input type="submit" value="Sí, eliminar" class="btn btn-danger" />
+    <a asp-action="listadoCitas" class="btn btn-secondary">Cancelar</a>
+</form>

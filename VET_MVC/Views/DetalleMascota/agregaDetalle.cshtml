@@ -1,0 +1,27 @@
+@* ── AGREGAR DETALLE MASCOTA ── *@
+@model VET_MVC.Models.mDetalleMascota
+@{ ViewData["Title"] = "Detalle físico"; Layout = "~/Views/Shared/_Layout.cshtml"; }
+<h2>Registrar detalle físico</h2><hr />
+<div class="row"><div class="col-md-5">
+    <form asp-action="insDetalle">
+        <input type="hidden" asp-for="TN_IdMascota" />
+        <div class="mb-3">
+            <label asp-for="TC_Raza" class="form-label"></label>
+            <input asp-for="TC_Raza" class="form-control" />
+            <span asp-validation-for="TC_Raza" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="TN_Peso" class="form-label"></label>
+            <input asp-for="TN_Peso" class="form-control" type="number" step="0.01" />
+            <span asp-validation-for="TN_Peso" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="TC_Color" class="form-label"></label>
+            <input asp-for="TC_Color" class="form-control" />
+            <span asp-validation-for="TC_Color" class="text-danger"></span>
+        </div>
+        <input type="submit" value="Guardar" class="btn btn-primary" />
+        <a asp-controller="Mascotas" asp-action="listadoMascotas" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div></div>
+@section Scripts { @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); } }

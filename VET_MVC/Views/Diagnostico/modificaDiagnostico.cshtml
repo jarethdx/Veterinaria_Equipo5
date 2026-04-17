@@ -1,0 +1,27 @@
+@* ── MODIFICAR DIAGNÓSTICO ── *@
+@model VET_MVC.Models.mDiagnostico
+@{ ViewData["Title"] = "Editar diagnóstico"; Layout = "~/Views/Shared/_Layout.cshtml"; }
+<h2>Editar diagnóstico</h2><hr />
+<div class="row"><div class="col-md-6">
+    <form asp-action="modDiagnostico">
+        <input type="hidden" asp-for="TN_IdDiagnostico" />
+        <div class="mb-3">
+            <label asp-for="TN_IdCita" class="form-label"></label>
+            <select asp-for="TN_IdCita" class="form-select">
+                @foreach (var c in (ViewBag.Citas as List<VET_MVC.Models.mCita> ?? new()))
+                {
+                    <option value="@c.TN_IdCita">
+                        @c.TF_FecCita.ToString("dd/MM/yyyy") — @c.TC_NomMascota
+                    </option>
+                }
+            </select>
+        </div>
+        <div class="mb-3">
+            <label asp-for="TC_DscDiagnostico" class="form-label"></label>
+            <textarea asp-for="TC_DscDiagnostico" class="form-control" rows="4"></textarea>
+            <span asp-validation-for="TC_DscDiagnostico" class="text-danger"></span>
+        </div>
+        <input type="submit" value="Actualizar" class="btn btn-warning" />
+        <a asp-action="listadoDiagnosticos" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div></div>

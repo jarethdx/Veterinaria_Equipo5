@@ -1,0 +1,13 @@
+@* ── DETALLE CITA ── *@
+@model VET_MVC.Models.mCita
+@{ ViewData["Title"] = "Detalle cita"; Layout = "~/Views/Shared/_Layout.cshtml"; }
+<h2>Detalle de la cita</h2><hr />
+<dl class="row">
+    <dt class="col-sm-3">Fecha</dt>
+    <dd class="col-sm-9">@Model?.TF_FecCita.ToString("dd/MM/yyyy HH:mm")</dd>
+    <dt class="col-sm-3">Cliente</dt>
+    <dd class="col-sm-9">@Model?.TC_NombreCliente</dd>
+    <dt class="col-sm-3">Mascota</dt>
+    <dd class="col-sm-9">@Model?.TC_NomMascota</dd>
+</dl>
+<a asp-action="listadoCitas" class="btn btn-secondary">Regresar</a>

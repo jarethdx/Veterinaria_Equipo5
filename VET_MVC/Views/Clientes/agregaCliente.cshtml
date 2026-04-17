@@ -1,0 +1,40 @@
+@model VET_MVC.Models.mCliente
+@{ ViewData["Title"] = "Nuevo cliente"; Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+<h2>Registrar nuevo cliente</h2>
+<hr />
+<div class="row">
+    <div class="col-md-5">
+        <form asp-action="insCliente">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="mb-3">
+                <label asp-for="TC_Nombre" class="form-label"></label>
+                <input asp-for="TC_Nombre" class="form-control" />
+                <span asp-validation-for="TC_Nombre" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="TC_Ap1" class="form-label"></label>
+                <input asp-for="TC_Ap1" class="form-control" />
+                <span asp-validation-for="TC_Ap1" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="TC_Ap2" class="form-label"></label>
+                <input asp-for="TC_Ap2" class="form-control" />
+                <span asp-validation-for="TC_Ap2" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="TC_NumTelefono" class="form-label"></label>
+                <input asp-for="TC_NumTelefono" class="form-control" />
+                <span asp-validation-for="TC_NumTelefono" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="TC_CorreoElectronico" class="form-label"></label>
+                <input asp-for="TC_CorreoElectronico" class="form-control" />
+                <span asp-validation-for="TC_CorreoElectronico" class="text-danger"></span>
+            </div>
+            <input type="submit" value="Guardar" class="btn btn-primary" />
+            <a asp-action="listadoClientes" class="btn btn-secondary">Cancelar</a>
+        </form>
+    </div>
+</div>
+@section Scripts { @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); } }

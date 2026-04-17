@@ -1,0 +1,28 @@
+@model VET_MVC.Models.mDiagnostico
+@{ ViewData["Title"] = "Nuevo diagnóstico"; Layout = "~/Views/Shared/_Layout.cshtml"; }
+<h2>Registrar diagnóstico</h2><hr />
+<div class="row"><div class="col-md-6">
+    <form asp-action="insDiagnostico">
+        <div class="mb-3">
+            <label asp-for="TN_IdCita" class="form-label"></label>
+            <select asp-for="TN_IdCita" class="form-select">
+                <option value="">-- Seleccione cita --</option>
+                @foreach (var c in (ViewBag.Citas as List<VET_MVC.Models.mCita> ?? new()))
+                {
+                    <option value="@c.TN_IdCita">
+                        @c.TF_FecCita.ToString("dd/MM/yyyy") — @c.TC_NomMascota (@c.TC_NombreCliente)
+                    </option>
+                }
+            </select>
+            <span asp-validation-for="TN_IdCita" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="TC_DscDiagnostico" class="form-label"></label>
+            <textarea asp-for="TC_DscDiagnostico" class="form-control" rows="4"></textarea>
+            <span asp-validation-for="TC_DscDiagnostico" class="text-danger"></span>
+        </div>
+        <input type="submit" value="Guardar" class="btn btn-primary" />
+        <a asp-action="listadoDiagnosticos" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div></div>
+@section Scripts { @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); } }

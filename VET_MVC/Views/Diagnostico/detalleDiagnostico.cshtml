@@ -1,0 +1,12 @@
+@model VET_MVC.Models.mDiagnostico
+@{ ViewData["Title"] = "Detalle diagnóstico"; Layout = "~/Views/Shared/_Layout.cshtml"; }
+<h2>Detalle del diagnóstico</h2><hr />
+<dl class="row">
+    <dt class="col-sm-3">Mascota</dt>
+    <dd class="col-sm-9">@Model?.TC_NomMascota</dd>
+    <dt class="col-sm-3">Fecha cita</dt>
+    <dd class="col-sm-9">@Model?.TF_FecCita?.ToString("dd/MM/yyyy")</dd>
+    <dt class="col-sm-3">Diagnóstico</dt>
+    <dd class="col-sm-9">@Model?.TC_DscDiagnostico</dd>
+</dl>
+<a asp-action="listadoDiagnosticos" class="btn btn-secondary">Regresar</a>

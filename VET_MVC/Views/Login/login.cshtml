@@ -1,0 +1,32 @@
+@model VET_MVC.Models.mUsuario
+@{ ViewData["Title"] = "Iniciar sesión"; Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+<div class="row justify-content-center mt-5">
+    <div class="col-md-4">
+        <div class="card shadow">
+            <div class="card-header bg-primary text-white text-center">
+                <h4>🐾 Clínica Veterinaria</h4>
+                <small>Ingrese sus credenciales</small>
+            </div>
+            <div class="card-body">
+                <form asp-action="accesoUsuario">
+                    <div class="mb-3">
+                        <label asp-for="usuario" class="form-label"></label>
+                        <input asp-for="usuario" class="form-control" placeholder="correo@ejemplo.com" />
+                        <span asp-validation-for="usuario" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="contrasena" class="form-label"></label>
+                        <input asp-for="contrasena" type="password" class="form-control" placeholder="Contraseña" />
+                        <span asp-validation-for="contrasena" class="text-danger"></span>
+                    </div>
+                    <div class="d-grid">
+                        <input type="submit" value="Ingresar" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts { @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); } }

@@ -1,0 +1,12 @@
+@model VET_MVC.Models.mDiagnostico
+@{ ViewData["Title"] = "Eliminar diagnóstico"; Layout = "~/Views/Shared/_Layout.cshtml"; }
+<h2>¿Desea eliminar este diagnóstico?</h2><hr />
+<div class="alert alert-warning">
+    <strong>Mascota:</strong> @Model?.TC_NomMascota<br />
+    <strong>Diagnóstico:</strong> @Model?.TC_DscDiagnostico
+</div>
+<form asp-action="delDiagnostico">
+    <input type="hidden" asp-for="TN_IdDiagnostico" />
+    <input type="submit" value="Sí, eliminar" class="btn btn-danger" />
+    <a asp-action="listadoDiagnosticos" class="btn btn-secondary">Cancelar</a>
+</form>

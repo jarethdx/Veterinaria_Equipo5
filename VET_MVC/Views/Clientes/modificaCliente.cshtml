@@ -1,0 +1,35 @@
+@* ── MODIFICAR ── *@
+@model VET_MVC.Models.mCliente
+@{ ViewData["Title"] = "Editar cliente"; Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+<h2>Editar cliente</h2><hr />
+<div class="row"><div class="col-md-5">
+    <form asp-action="modCliente">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="TN_IdCliente" />
+        <div class="mb-3">
+            <label asp-for="TC_Nombre" class="form-label"></label>
+            <input asp-for="TC_Nombre" class="form-control" />
+            <span asp-validation-for="TC_Nombre" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="TC_Ap1" class="form-label"></label>
+            <input asp-for="TC_Ap1" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="TC_Ap2" class="form-label"></label>
+            <input asp-for="TC_Ap2" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="TC_NumTelefono" class="form-label"></label>
+            <input asp-for="TC_NumTelefono" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="TC_CorreoElectronico" class="form-label"></label>
+            <input asp-for="TC_CorreoElectronico" class="form-control" />
+        </div>
+        <input type="submit" value="Actualizar" class="btn btn-warning" />
+        <a asp-action="listadoClientes" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div></div>
+@section Scripts { @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); } }

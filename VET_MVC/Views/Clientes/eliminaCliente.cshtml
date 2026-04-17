@@ -1,0 +1,13 @@
+@model VET_MVC.Models.mCliente
+@{ ViewData["Title"] = "Eliminar cliente"; Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+<h2>¿Desea eliminar este cliente?</h2><hr />
+<div class="alert alert-warning">
+    <strong>@Model?.TC_Nombre @Model?.TC_Ap1 @Model?.TC_Ap2</strong><br />
+    Teléfono: @Model?.TC_NumTelefono — Correo: @Model?.TC_CorreoElectronico
+</div>
+<form asp-action="delCliente">
+    <input type="hidden" asp-for="TN_IdCliente" />
+    <input type="submit" value="Sí, eliminar" class="btn btn-danger" />
+    <a asp-action="listadoClientes" class="btn btn-secondary">Cancelar</a>
+</form>

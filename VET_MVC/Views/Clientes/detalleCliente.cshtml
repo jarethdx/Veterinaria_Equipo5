@@ -1,0 +1,18 @@
+@* ── DETALLE ── *@
+@model VET_MVC.Models.mCliente
+@{ ViewData["Title"] = "Detalle cliente"; Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+<h2>Detalle del cliente</h2><hr />
+<dl class="row">
+    <dt class="col-sm-3">@Html.DisplayNameFor(m => m.TC_Nombre)</dt>
+    <dd class="col-sm-9">@Model?.TC_Nombre</dd>
+    <dt class="col-sm-3">@Html.DisplayNameFor(m => m.TC_Ap1)</dt>
+    <dd class="col-sm-9">@Model?.TC_Ap1</dd>
+    <dt class="col-sm-3">@Html.DisplayNameFor(m => m.TC_Ap2)</dt>
+    <dd class="col-sm-9">@Model?.TC_Ap2</dd>
+    <dt class="col-sm-3">@Html.DisplayNameFor(m => m.TC_NumTelefono)</dt>
+    <dd class="col-sm-9">@Model?.TC_NumTelefono</dd>
+    <dt class="col-sm-3">@Html.DisplayNameFor(m => m.TC_CorreoElectronico)</dt>
+    <dd class="col-sm-9">@Model?.TC_CorreoElectronico</dd>
+</dl>
+<a asp-action="listadoClientes" class="btn btn-secondary">Regresar</a>

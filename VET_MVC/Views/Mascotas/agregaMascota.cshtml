@@ -1,0 +1,28 @@
+@* ── AGREGAR MASCOTA ── *@
+@model VET_MVC.Models.mMascota
+@{ ViewData["Title"] = "Nueva mascota"; Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+<h2>Registrar nueva mascota</h2><hr />
+<div class="row"><div class="col-md-5">
+    <form asp-action="insMascota">
+        <div class="mb-3">
+            <label asp-for="TC_NomMascota" class="form-label"></label>
+            <input asp-for="TC_NomMascota" class="form-control" />
+            <span asp-validation-for="TC_NomMascota" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="TN_IdCliente" class="form-label"></label>
+            <select asp-for="TN_IdCliente" class="form-select">
+                <option value="">-- Seleccione dueño --</option>
+                @foreach (var c in (ViewBag.Clientes as List<VET_MVC.Models.mCliente> ?? new()))
+                {
+                    <option value="@c.TN_IdCliente">@c.TC_Nombre @c.TC_Ap1</option>
+                }
+            </select>
+            <span asp-validation-for="TN_IdCliente" class="text-danger"></span>
+        </div>
+        <input type="submit" value="Guardar" class="btn btn-primary" />
+        <a asp-action="listadoMascotas" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div></div>
+@section Scripts { @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); } }

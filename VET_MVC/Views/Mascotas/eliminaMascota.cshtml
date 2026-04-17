@@ -1,0 +1,9 @@
+@model VET_MVC.Models.mMascota
+@{ ViewData["Title"] = "Eliminar mascota"; Layout = "~/Views/Shared/_Layout.cshtml"; }
+<h2>¿Desea eliminar esta mascota?</h2><hr />
+<div class="alert alert-warning"><strong>@Model?.TC_NomMascota</strong> — Dueño: @Model?.TC_NombreCliente</div>
+<form asp-action="delMascota">
+    <input type="hidden" asp-for="TN_IdMascota" />
+    <input type="submit" value="Sí, eliminar" class="btn btn-danger" />
+    <a asp-action="listadoMascotas" class="btn btn-secondary">Cancelar</a>
+</form>

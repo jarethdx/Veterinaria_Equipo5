@@ -1,0 +1,28 @@
+@* ── LISTADO MASCOTAS ── *@
+@model IEnumerable<VET_MVC.Models.mMascota>
+@{ ViewData["Title"] = "Mascotas"; Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+<h2>Mascotas registradas</h2>
+<p><a asp-action="agregaMascota" class="btn btn-success btn-sm">+ Nueva mascota</a></p>
+<table class="table table-striped table-hover">
+    <thead class="table-dark">
+        <tr>
+            <th>Nombre mascota</th><th>Dueño</th><th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.TC_NomMascota</td>
+                <td>@item.TC_NombreCliente</td>
+                <td>
+                    @Html.ActionLink("Detalle físico", "agregaDetalle",    "DetalleMascota", new { pId = item.TN_IdMascota }, new { @class = "btn btn-secondary btn-sm" }) |
+                    @Html.ActionLink("Editar",          "modificaMascota", new { pId = item.TN_IdMascota }, new { @class = "btn btn-warning btn-sm" }) |
+                    @Html.ActionLink("Ver",             "detalleMascota",  new { pId = item.TN_IdMascota }, new { @class = "btn btn-info btn-sm" }) |
+                    @Html.ActionLink("Eliminar",        "eliminaMascota",  new { pId = item.TN_IdMascota }, new { @class = "btn btn-danger btn-sm" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

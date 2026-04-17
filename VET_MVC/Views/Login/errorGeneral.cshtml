@@ -1,0 +1,11 @@
+@{ ViewData["Title"] = "Error"; Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+<div class="row justify-content-center mt-5">
+    <div class="col-md-5 text-center">
+        <div class="alert alert-danger">
+            <h4>⚠️ Acceso denegado</h4>
+            <p>Usuario o contraseña incorrectos. Por favor verifique sus datos.</p>
+        </div>
+        <a asp-controller="Login" asp-action="login" class="btn btn-primary">Volver al login</a>
+    </div>
+</div>

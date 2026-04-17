@@ -1,0 +1,24 @@
+@* ── MODIFICAR MASCOTA ── *@
+@model VET_MVC.Models.mMascota
+@{ ViewData["Title"] = "Editar mascota"; Layout = "~/Views/Shared/_Layout.cshtml"; }
+<h2>Editar mascota</h2><hr />
+<div class="row"><div class="col-md-5">
+    <form asp-action="modMascota">
+        <input type="hidden" asp-for="TN_IdMascota" />
+        <div class="mb-3">
+            <label asp-for="TC_NomMascota" class="form-label"></label>
+            <input asp-for="TC_NomMascota" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="TN_IdCliente" class="form-label"></label>
+            <select asp-for="TN_IdCliente" class="form-select">
+                @foreach (var c in (ViewBag.Clientes as List<VET_MVC.Models.mCliente> ?? new()))
+                {
+                    <option value="@c.TN_IdCliente">@c.TC_Nombre @c.TC_Ap1</option>
+                }
+            </select>
+        </div>
+        <input type="submit" value="Actualizar" class="btn btn-warning" />
+        <a asp-action="listadoMascotas" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div></div>
